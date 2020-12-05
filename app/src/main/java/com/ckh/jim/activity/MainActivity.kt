@@ -14,10 +14,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        val wu = "老吴给爷爬"
+        val wu = "给爷爬"
         binding.tvText.text = wu
-        val pa = "在爬了~"
+        val pa = "在爬了"
 
         binding.btnFight.setOnClickListener {
             binding.tvText.text = if (binding.tvText.text == wu) {
@@ -30,6 +29,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.imginter.setOnClickListener {
             val intent = Intent(this, PaActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnBlog.setOnClickListener {
+            val intent = Intent(this, MyBlogActivity::class.java)
             startActivity(intent)
         }
 

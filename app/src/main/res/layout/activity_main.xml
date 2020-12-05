@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="#ffffff"
     tools:context=".activity.MainActivity">
 
     <TextView
@@ -22,7 +22,7 @@
         android:id="@+id/btnFight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="132dp"
+        android:layout_marginTop="68dp"
         android:background="@color/cardview_light_background"
         android:text="打他"
         android:textSize="18sp"
@@ -35,7 +35,7 @@
         android:id="@+id/imginter"
         android:layout_width="49dp"
         android:layout_height="46dp"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="6dp"
         android:layout_marginTop="4dp"
         android:padding="10dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,11 +43,12 @@
         app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/btnBlog"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="10dp"
+        android:background="#eeeeee"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_notes_24" />
