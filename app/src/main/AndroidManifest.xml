@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.MyBlogActivity"></activity>
+        <activity android:name=".activity.FlActivity"></activity>
+        <activity android:name=".activity.MyBlogActivity" />
         <activity android:name=".activity.JavaActivity" />
         <activity android:name=".activity.PaActivity" />
         <activity android:name=".activity.MainActivity">
