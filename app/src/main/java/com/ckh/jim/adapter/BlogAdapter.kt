@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ckh.jim.R
 
 
-class BlogAdapter(private val blogList: ArrayList<BlogData>) :
+class BlogAdapter(private val blogList: ArrayList<BlogItemData>) :
     RecyclerView.Adapter<BlogAdapter.ViewHolder>() {
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -34,5 +34,14 @@ class BlogAdapter(private val blogList: ArrayList<BlogData>) :
 }
 
 data class BlogData(
-    val title : String
-        )
+    val data: Datas
+)
+
+data class Datas(
+    val datas: ArrayList<BlogItemData>
+
+)
+
+data class BlogItemData(
+    val title: String
+)

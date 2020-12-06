@@ -19,7 +19,8 @@
         <activity android:name=".activity.MyBlogActivity" />
         <activity android:name=".activity.JavaActivity" />
         <activity android:name=".activity.PaActivity" />
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".activity.MainActivity"
+            android:theme="@style/AppTheme.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
