@@ -1,50 +1,77 @@
 package com.ckh.jim.activity
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Gravity
+import androidx.core.view.GravityCompat
 import com.ckh.jim.StatusbarColorUtils
 import com.ckh.jim.databinding.ActivityMainBinding
+import com.ckh.jim.util.openUrlByBrowser
+import com.ckh.jim.util.openUrlByWebActivity
 
 // 老陈爬
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+    /**
+     * activity
+     */
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val wu = "右边按钮\n打开博客"
-        binding.tvText.text = wu
-        val pa = "左边按钮打开\n仿制哔哩哔哩"
 
-        StatusbarColorUtils.setStatusBarDarkIcon(this, false)
+        //StatusbarColorUtils.setStatusBarDarkIcon(this, false)
+        // 加载视图
+        initView()
+    }
 
-        binding.btnFight.setOnClickListener {
-            binding.tvText.text = if (binding.tvText.text == wu) {
-                 pa
-            } else {
-                 wu
+
+    private  fun initView() {
+        binding.apply {
+            imginter.setOnClickListener {
+                val intent = Intent(this@MainActivity, PaActivity::class.java)
+                startActivity(intent)
             }
 
-        }
+            btnBlog.setOnClickListener {
+                val intent = Intent(this@MainActivity, MyBlogActivity::class.java)
+                startActivity(intent)
+            }
+            // 设置循环播放次数，0 为不循环，-1 为一直循环，其他的如 3 为循环 3 次
+            lottieAnimationView.repeatCount = -1
+            // 开始播放动画
+            lottieAnimationView.playAnimation()
 
-        binding.imginter.setOnClickListener {
-            val intent = Intent(this, PaActivity::class.java)
-            startActivity(intent)
-        }
+            //左边
+            imginter.repeatCount = -1
+            imginter.playAnimation()
 
-        binding.btnBlog.setOnClickListener {
-            val intent = Intent(this, MyBlogActivity::class.java)
-            startActivity(intent)
-        }
-        // 设置循环播放次数，0 为不循环，-1 为一直循环，其他的如 3 为循环 3 次
-        binding.lottieAnimationView.repeatCount = -1
-        // 开始播放动画
-        binding.lottieAnimationView.playAnimation()
+            //右边
+            btnBlog.repeatCount = -1
+            btnBlog.playAnimation()
+            //顶部
+            imgMainTop.repeatCount = -1
+            imgMainTop.playAnimation()
+            ivMenu.repeatCount = -1
+            ivMenu.playAnimation()
 
-        binding.imginter.repeatCount = -1
-        binding.imginter.playAnimation()
+//            imgMainTop.setOnClickListener {
+//                openUrlByBrowser(this@MainActivity, "https://kartjim.top")
+//            }
+
+            ivMenu.setOnClickListener {
+                drawerLayout.openDrawer(GravityCompat.START)
+            }
+
+            includeMainMenu.tvKartjim.setOnClickListener{
+//                openUrlByBrowser(this@MainActivity, "https://kartjim.top")
+                openUrlByWebActivity(this@MainActivity, "https://kartjim.top")
+            }
+        }
     }
 }

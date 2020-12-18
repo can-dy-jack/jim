@@ -15,11 +15,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.FlActivity"></activity>
+        <activity
+            android:name=".activity.WebActivity"
+            android:theme="@style/AppTheme.FullScreen" />
+        <activity android:name=".activity.FlActivity" />
         <activity android:name=".activity.MyBlogActivity" />
         <activity android:name=".activity.JavaActivity" />
         <activity android:name=".activity.PaActivity" />
-        <activity android:name=".activity.MainActivity"
+        <activity
+            android:name=".activity.MainActivity"
             android:theme="@style/AppTheme.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -125,6 +125,15 @@
                     app:srcCompat="@drawable/ic_baseline_share_24" />
             </LinearLayout>
 
+
+<!--            android:layout_marginTop="500dp"-->
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/imgMonkey"
+                android:layout_width="match_parent"
+                android:layout_height="238dp"
+                tools:srcCompat="@tools:sample/avatars"
+                app:lottie_rawRes="@raw/lottie_monkey"/>
+
         </LinearLayout>
     </ScrollView>
 

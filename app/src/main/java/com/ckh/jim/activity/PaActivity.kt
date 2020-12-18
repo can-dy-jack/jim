@@ -28,6 +28,8 @@ class PaActivity : AppCompatActivity() {
             }
             return@setOnEditorActionListener true
         }
+        imgMonkey.repeatCount = -1
+        imgMonkey.playAnimation()
     }
 
     private fun sendDanMu() {
@@ -40,6 +42,5 @@ class PaActivity : AppCompatActivity() {
             duration = 4000
             start()
         }
-
     }
 }

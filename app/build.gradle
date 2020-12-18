@@ -10,8 +10,8 @@ android {
         applicationId "com.ckh.jim"
         minSdkVersion 23
         targetSdkVersion 30
-        versionCode 1
-        versionName "2.2.3"
+        versionCode 321
+        versionName "3.2.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -48,4 +48,6 @@ dependencies {
 
     //猴子
     implementation 'com.airbnb.android:lottie:3.4.1'
+
+    implementation 'androidx.drawerlayout:drawerlayout:1.1.1'
 }
