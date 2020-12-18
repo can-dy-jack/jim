@@ -4,15 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:fitsSystemWindows="true"
     tools:context=".activity.MainActivity">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieAnimationView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_rawRes="@raw/lottie_squirrel"/>
 
     <TextView
         android:id="@+id/tvText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:text="老吴给爷爬"
+        android:text="右边按钮\n打开博客"
+        android:textColor="#221D1D"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,28 +33,32 @@
         android:id="@+id/btnFight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="132dp"
-        android:background="@color/cardview_light_background"
-        android:text="打他"
+        android:layout_marginBottom="100dp"
+        android:alpha="1"
+        android:background="#ffffff"
+        android:text="提示"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvText" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
+    <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/imginter"
-        android:layout_width="49dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:alpha="1"
         android:padding="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
+        app:lottie_rawRes="@raw/lottie_loading" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/btnBlog"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginTop="5dp"
