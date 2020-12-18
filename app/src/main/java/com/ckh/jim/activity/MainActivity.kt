@@ -39,5 +39,12 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, MyBlogActivity::class.java)
             startActivity(intent)
         }
+        // 设置循环播放次数，0 为不循环，-1 为一直循环，其他的如 3 为循环 3 次
+        binding.lottieAnimationView.repeatCount = -1
+        // 开始播放动画
+        binding.lottieAnimationView.playAnimation()
+
+        binding.imginter.repeatCount = -1
+        binding.imginter.playAnimation()
     }
 }

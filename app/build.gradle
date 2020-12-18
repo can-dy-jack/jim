@@ -45,4 +45,7 @@ dependencies {
 
     implementation 'com.squareup.okhttp3:okhttp:4.9.0'
     implementation 'com.google.code.gson:gson:2.8.6'
+
+    //猴子
+    implementation 'com.airbnb.android:lottie:3.4.1'
 }
