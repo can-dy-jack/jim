@@ -2,10 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:fitsSystemWindows="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/earth"
+    android:fitsSystemWindows="true"
     tools:context=".activity.MainActivity">
 
     <TextView
@@ -14,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:text="右边按钮\n打开博客"
-        android:textColor="#4158B9"
+        android:textColor="#221D1D"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,11 +24,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="100dp"
-        android:alpha="0.5"
-        android:background="#0D2C6A"
+        android:alpha="1"
+        android:background="#ffffff"
         android:text="提示"
         android:textAlignment="center"
-        android:textColor="#C8B9AA"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,13 +39,13 @@
         android:id="@+id/imginter"
         android:layout_width="49dp"
         android:layout_height="46dp"
-        android:layout_marginStart="6dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
-        android:alpha="0.65"
+        android:alpha="1"
         android:padding="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
+        app:srcCompat="@drawable/ic_baseline_featured_play_list_24" />
 
     <ImageView
         android:id="@+id/btnBlog"
@@ -54,7 +53,6 @@
         android:layout_height="40dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="10dp"
-        android:alpha="0.8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_notes_24" />
