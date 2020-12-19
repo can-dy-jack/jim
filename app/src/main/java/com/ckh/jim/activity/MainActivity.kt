@@ -75,6 +75,9 @@ class MainActivity : AppCompatActivity() {
 //                openUrlByBrowser(this@MainActivity, "https://kartjim.top")
                 openUrlByWebActivity(this@MainActivity, "https://kartjim.top")
             }
+            includeMainMenu.tvCandyjack.setOnClickListener{
+                openUrlByWebActivity(this@MainActivity, "https://github.com/can-dy-jack/jim")
+            }
         }
     }
 }
