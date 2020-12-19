@@ -57,9 +57,12 @@ class MainActivity : AppCompatActivity() {
             //顶部
             imgMainTop.repeatCount = -1
             imgMainTop.playAnimation()
+
             ivMenu.repeatCount = -1
             ivMenu.playAnimation()
 
+            imgRight.repeatCount = -1
+            imgRight.playAnimation()
 //            imgMainTop.setOnClickListener {
 //                openUrlByBrowser(this@MainActivity, "https://kartjim.top")
 //            }
