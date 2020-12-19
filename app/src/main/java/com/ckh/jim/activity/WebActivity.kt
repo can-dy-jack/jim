@@ -6,8 +6,6 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Message
-import android.view.View
-import android.view.Window
 import android.webkit.*
 import androidx.core.content.ContextCompat
 import com.ckh.jim.databinding.ActivityWebBinding
@@ -24,7 +22,7 @@ class WebActivity : AppCompatActivity() {
 
         val extraWebUrlStr = intent.getStringExtra("extra_webUrlStr")
 
-        binding.webView.settings.javaScriptEnabled = true // 禁用 JavaScript
+        binding.webView.settings.javaScriptEnabled = true
         binding.webView.settings.allowFileAccess = false // 禁止访问私有文件数据
         binding.webView.settings.cacheMode = WebSettings.LOAD_NO_CACHE
         binding.webView.webViewClient = object : WebViewClient() {

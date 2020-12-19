@@ -78,6 +78,12 @@ class MainActivity : AppCompatActivity() {
             includeMainMenu.tvCandyjack.setOnClickListener{
                 openUrlByWebActivity(this@MainActivity, "https://github.com/can-dy-jack/jim")
             }
+            includeMainMenu.tvMoriafly.setOnClickListener{
+                openUrlByWebActivity(this@MainActivity, "https://moriafly.xyz")
+            }
+            includeMainMenu.tvDirror.setOnClickListener{
+                openUrlByWebActivity(this@MainActivity, "https://github.com/Moriafly/dirror-music")
+            }
         }
     }
 }
