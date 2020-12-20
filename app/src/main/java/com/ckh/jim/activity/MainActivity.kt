@@ -1,15 +1,16 @@
 package com.ckh.jim.activity
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Gravity
 import androidx.core.view.GravityCompat
-import com.ckh.jim.StatusbarColorUtils
+import androidx.viewpager2.widget.ViewPager2
+import com.ckh.jim.MagicHttp
+import com.ckh.jim.adapter.SentenceAdapter
 import com.ckh.jim.databinding.ActivityMainBinding
-import com.ckh.jim.util.openUrlByBrowser
 import com.ckh.jim.util.openUrlByWebActivity
+import com.ckh.jim.util.toast
+import kotlinx.android.synthetic.main.activity_main.*
 
 // 老陈爬
 class MainActivity : AppCompatActivity() {
@@ -30,8 +31,18 @@ class MainActivity : AppCompatActivity() {
         initView()
     }
 
-
+    private val sentenceAdapter = SentenceAdapter(ArrayList<String>())
     private  fun initView() {
+
+        getSentence()
+        binding.viewPager2Sentence.adapter = sentenceAdapter
+        binding.viewPager2Sentence.registerOnPageChangeCallback(object :
+            ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                getSentence()
+            }
+        })
+
         binding.apply {
             imginter.setOnClickListener {
                 val intent = Intent(this@MainActivity, PaActivity::class.java)
@@ -54,9 +65,6 @@ class MainActivity : AppCompatActivity() {
             //右边
             btnBlog.repeatCount = -1
             btnBlog.playAnimation()
-            //顶部
-            imgMainTop.repeatCount = -1
-            imgMainTop.playAnimation()
 
             ivMenu.repeatCount = -1
             ivMenu.playAnimation()
@@ -82,8 +90,32 @@ class MainActivity : AppCompatActivity() {
                 openUrlByWebActivity(this@MainActivity, "https://moriafly.xyz")
             }
             includeMainMenu.tvDirror.setOnClickListener{
+//                val url = "https://v1.hitokoto.cn/?encode=text"
+//                MagicHttp.OkHttpManager().newGet(url, {
+//                    toast(it)
+//                }, {
+//
+//                })
+                //toast("util.TopLevelFunction.kt")
                 openUrlByWebActivity(this@MainActivity, "https://github.com/Moriafly/dirror-music")
             }
         }
+
+
+    }
+
+    /**
+     * 获取一个句子到字符串数组中(bug——加载多了会卡顿！）
+     */
+    fun getSentence() {
+        MagicHttp.OkHttpManager().newGet("https://v1.hitokoto.cn/?encode=text",{
+            runOnMainThread {
+                sentenceAdapter.addItem(it)
+                sentenceAdapter.notifyDataSetChanged()
+            }
+
+        },{
+
+        })
     }
 }

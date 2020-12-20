@@ -6,7 +6,10 @@ import com.umeng.commonsdk.UMConfigure
 
 class MyApplication: Application() {
 
-    lateinit var context: Context
+    companion object {
+        lateinit var context: Context
+    }
+
 
     override fun onCreate() {
         super.onCreate()

@@ -43,7 +43,7 @@
                     android:padding="15dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:lottie_rawRes="@raw/lottie_loading" />
+                    app:lottie_rawRes="@raw/main_brahmao" />
 
                 <com.airbnb.lottie.LottieAnimationView
                     android:id="@+id/btnBlog"
@@ -63,18 +63,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintGuide_begin="300dp" />
 
-                <com.airbnb.lottie.LottieAnimationView
-                    android:id="@+id/imgMainTop"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:paddingTop="60dp"
-                    app:layout_constraintBottom_toTopOf="@+id/lottieAnimationView"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0"
-                    app:lottie_rawRes="@raw/lottie_money" />
+
 
                 <com.airbnb.lottie.LottieAnimationView
                     android:id="@+id/ivMenu"
@@ -95,6 +84,15 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     tools:srcCompat="@tools:sample/avatars"
                     app:lottie_rawRes="@raw/main_brahmao"/>
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/viewPager2Sentence"
+                    android:layout_width="409dp"
+                    android:layout_height="228dp"
+                    app:layout_constraintBottom_toTopOf="@+id/lottieAnimationView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imginter" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
