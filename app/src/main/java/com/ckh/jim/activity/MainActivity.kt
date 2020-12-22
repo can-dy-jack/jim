@@ -8,6 +8,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.ckh.jim.MagicHttp
 import com.ckh.jim.adapter.SentenceAdapter
 import com.ckh.jim.databinding.ActivityMainBinding
+import com.ckh.jim.util.openDsoMusic
 import com.ckh.jim.util.openUrlByWebActivity
 import com.ckh.jim.util.toast
 import kotlinx.android.synthetic.main.activity_main.*
@@ -48,32 +49,12 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this@MainActivity, PaActivity::class.java)
                 startActivity(intent)
             }
-
-            btnBlog.setOnClickListener {
-                val intent = Intent(this@MainActivity, MyBlogActivity::class.java)
-                startActivity(intent)
-            }
-            // 设置循环播放次数，0 为不循环，-1 为一直循环，其他的如 3 为循环 3 次
-            lottieAnimationView.repeatCount = -1
-            // 开始播放动画
-            lottieAnimationView.playAnimation()
-
             //左边
             imginter.repeatCount = -1
             imginter.playAnimation()
 
-            //右边
-            btnBlog.repeatCount = -1
-            btnBlog.playAnimation()
-
             ivMenu.repeatCount = -1
             ivMenu.playAnimation()
-
-            imgRight.repeatCount = -1
-            imgRight.playAnimation()
-//            imgMainTop.setOnClickListener {
-//                openUrlByBrowser(this@MainActivity, "https://kartjim.top")
-//            }
 
             ivMenu.setOnClickListener {
                 drawerLayout.openDrawer(GravityCompat.START)
@@ -97,13 +78,19 @@ class MainActivity : AppCompatActivity() {
 //
 //                })
                 //toast("util.TopLevelFunction.kt")
-                openUrlByWebActivity(this@MainActivity, "https://github.com/Moriafly/dirror-music")
+                openDsoMusic(this@MainActivity) {
+                    openUrlByWebActivity(this@MainActivity,"https://github.com/Moriafly/dirror-music/releases")
+                }
+            }
+            includeMainMenu.cvBottom.setOnClickListener{
+                finish()
+            }
+            includeMainMenu.cvBlog.setOnClickListener{
+                val intent = Intent(this@MainActivity,MyBlogActivity::class.java)
+                startActivity(intent)
             }
         }
-
-
     }
-
     /**
      * 获取一个句子到字符串数组中(bug——加载多了会卡顿！）
      */
@@ -113,7 +100,6 @@ class MainActivity : AppCompatActivity() {
                 sentenceAdapter.addItem(it)
                 sentenceAdapter.notifyDataSetChanged()
             }
-
         },{
 
         })

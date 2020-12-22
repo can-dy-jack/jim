@@ -27,7 +27,15 @@ fun openUrlByBrowser(context: Context, url: String) {
         startActivity(context, intent, Bundle())
     }
 }
-
+fun openDsoMusic(context: Context, failure: () -> Unit) {
+    try {
+        val intent = Intent()
+        intent.setClassName("com.dirror.music", "com.dirror.music.ui.activity.MainActivity")
+        context.startActivity(intent)
+    } catch (e: Exception) {
+        failure.invoke()
+    }
+}
 fun openUrlByWebActivity(activity: Activity, url: String) {
     val intent = Intent(activity, WebActivity::class.java)
     intent.putExtra("extra_webUrlStr", url)
