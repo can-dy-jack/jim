@@ -10,14 +10,11 @@ import com.ckh.jim.adapter.SentenceAdapter
 import com.ckh.jim.databinding.ActivityMainBinding
 import com.ckh.jim.util.openDsoMusic
 import com.ckh.jim.util.openUrlByWebActivity
-import com.ckh.jim.util.toast
 import kotlinx.android.synthetic.main.activity_main.*
 
-// 老陈爬
+
 class MainActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityMainBinding
-
     /**
      * activity
      */
@@ -26,25 +23,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         //StatusbarColorUtils.setStatusBarDarkIcon(this, false)
         // 加载视图
         initView()
     }
 
-    private val sentenceAdapter = SentenceAdapter(ArrayList<String>())
+
     private  fun initView() {
 
         getSentence()
-        binding.viewPager2Sentence.adapter = sentenceAdapter
-        binding.viewPager2Sentence.registerOnPageChangeCallback(object :
-            ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                getSentence()
-            }
-        })
 
         binding.apply {
+            includeSentence.root.setOnClickListener {
+                getSentence()
+            }
             imginter.setOnClickListener {
                 val intent = Intent(this@MainActivity, PaActivity::class.java)
                 startActivity(intent)
@@ -92,13 +84,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
     /**
-     * 获取一个句子到字符串数组中(bug——加载多了会卡顿！）
+     * 获取一个句子到字符串数组中
      */
     fun getSentence() {
         MagicHttp.OkHttpManager().newGet("https://v1.hitokoto.cn/?encode=text",{
             runOnMainThread {
-                sentenceAdapter.addItem(it)
-                sentenceAdapter.notifyDataSetChanged()
+                binding.includeSentence.tvSentence.text = it
             }
         },{
 

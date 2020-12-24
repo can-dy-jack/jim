@@ -53,21 +53,23 @@
                         tools:srcCompat="@tools:sample/avatars" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-                <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/viewPager2Sentence"
+                <include
+                    android:id="@+id/includeSentence"
+                    layout="@layout/recycle_sentence"
                     android:layout_width="0dp"
-                    android:layout_height="228dp"
+                    android:layout_height="200dp"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/titleBar" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
 
         <com.google.android.material.navigation.NavigationView
             android:layout_gravity="start"
-            android:layout_width="250dp"
+            android:layout_width="300dp"
             android:layout_height="match_parent">
             <include
                 android:id="@+id/includeMainMenu"

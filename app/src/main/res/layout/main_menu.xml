@@ -35,7 +35,8 @@
                 android:text="B L O G"
                 android:textAlignment="center"
                 android:textColor="#323333"
-                android:textSize="30sp" />
+                android:textSize="30sp"
+                android:textStyle="bold" />
 
         </androidx.cardview.widget.CardView>
 
@@ -177,7 +178,8 @@
             android:text="E X I T"
             android:textAlignment="center"
             android:textColor="@android:color/holo_blue_light"
-            android:textSize="26sp" />
+            android:textSize="26sp"
+            android:textStyle="bold" />
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
