@@ -3,6 +3,7 @@ package com.ckh.jim.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.security.FileIntegrityManager
 import androidx.core.view.GravityCompat
 import androidx.viewpager2.widget.ViewPager2
 import com.ckh.jim.MagicHttp
@@ -79,6 +80,11 @@ class MainActivity : AppCompatActivity() {
             }
             includeMainMenu.cvBlog.setOnClickListener{
                 val intent = Intent(this@MainActivity,MyBlogActivity::class.java)
+                startActivity(intent)
+            }
+            //打开 sign in
+            includeMainMenu.tvSign.setOnClickListener{
+                val intent = Intent(this@MainActivity,SignInActivity::class.java)
                 startActivity(intent)
             }
         }

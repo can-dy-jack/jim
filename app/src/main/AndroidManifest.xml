@@ -15,6 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activity.SignInActivity"></activity>
         <activity
             android:name=".activity.WebActivity"
             android:theme="@style/AppTheme.FullScreen" />
@@ -24,10 +25,11 @@
         <activity android:name=".activity.PaActivity" />
         <activity
             android:name=".activity.MainActivity"
-            android:theme="@style/AppTheme.FullScreen"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/AppTheme.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

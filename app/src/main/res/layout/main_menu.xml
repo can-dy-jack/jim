@@ -161,12 +161,35 @@
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="1px"
+        app:layout_constraintBottom_toTopOf="@+id/cvBottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/tvSign"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="SIGN IN"
+            android:textAlignment="center"
+            android:textColor="#4c221b"
+            android:textSize="18sp" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/cvBottom"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="20dp"
         app:cardCornerRadius="15dp"
-        app:cardElevation="5dp"
+        app:cardElevation="1px"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
         tools:layout_editor_absoluteX="20dp">
 
@@ -178,7 +201,7 @@
             android:text="E X I T"
             android:textAlignment="center"
             android:textColor="@android:color/holo_blue_light"
-            android:textSize="26sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
     </androidx.cardview.widget.CardView>
 
