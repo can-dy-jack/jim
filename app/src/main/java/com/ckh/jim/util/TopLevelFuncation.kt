@@ -11,7 +11,6 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import com.ckh.jim.MyApplication
 import com.ckh.jim.activity.WebActivity
-import com.ckh.jim.activity.runOnMainThread
 
 /**
  * 通过浏览器打开网页
@@ -55,6 +54,6 @@ fun toast(msg: String) {
 /**
  * 运行在主线程，更新 UI
  */
-fun runOnMainThread(runnable: Runnable) {
+fun runOnMainThread(runnable: () -> Unit) {
     Handler(Looper.getMainLooper()).post(runnable)
 }

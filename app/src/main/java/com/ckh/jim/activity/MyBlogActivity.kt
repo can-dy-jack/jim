@@ -3,13 +3,12 @@ package com.ckh.jim.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ckh.jim.MagicHttp
 import com.ckh.jim.R
 import com.ckh.jim.adapter.BlogAdapter
 import com.ckh.jim.adapter.BlogData
+import com.ckh.jim.util.runOnMainThread
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_my_blog.*
 
@@ -17,13 +16,17 @@ class MyBlogActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_blog)
+        // json 配置文件
+        val url = "${BlogContentActivity.DEFAULT_WEBSITE}/android.json"
+        // "https://www.wanandroid.com/article/list/0/json"
 
         MagicHttp.OkHttpManager().newGet(
-            "https://www.wanandroid.com/article/list/0/json", {
-                val datas = Gson().fromJson(it, BlogData::class.java).data.datas
-                runOnUiThread {
+
+            url, {
+                val data = Gson().fromJson(it, BlogData::class.java).data
+                runOnMainThread {
                     rvBlog.layoutManager = LinearLayoutManager(this)
-                    rvBlog.adapter = BlogAdapter(datas)
+                    rvBlog.adapter = BlogAdapter(data)
                 }
             }, {
 
@@ -36,9 +39,4 @@ class MyBlogActivity : AppCompatActivity() {
         }
     }
 
-}
-
-// 运行在主线程，更新 UI
-fun runOnMainThread(runnable: () -> Unit) {
-    Handler(Looper.getMainLooper()).post(runnable)
 }
