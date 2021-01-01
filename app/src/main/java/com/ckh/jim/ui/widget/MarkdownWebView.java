@@ -132,6 +132,7 @@ public class MarkdownWebView extends WebView {
             escapeText = "";
         }
 
+
         String javascriptCommand = "javascript:setText(\'" + escapeText + "\')";
         this.loadUrl(javascriptCommand);
     }

@@ -11,6 +11,7 @@ import com.ckh.jim.adapter.SentenceAdapter
 import com.ckh.jim.databinding.ActivityMainBinding
 import com.ckh.jim.util.openDsoMusic
 import com.ckh.jim.util.openUrlByWebActivity
+import com.ckh.jim.util.runOnMainThread
 import kotlinx.android.synthetic.main.activity_main.*
 
 
