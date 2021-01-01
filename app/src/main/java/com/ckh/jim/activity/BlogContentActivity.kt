@@ -5,11 +5,12 @@ import android.os.Bundle
 import com.ckh.jim.MagicHttp
 import com.ckh.jim.databinding.ActivityBlogContentBinding
 import com.ckh.jim.util.runOnMainThread
+import com.ckh.jim.util.toast
 
 class BlogContentActivity : AppCompatActivity() {
 
     companion object {
-        const val DEFAULT_WEBSITE = "https://moriafly.xyz/jim"
+        const val DEFAULT_WEBSITE = "https://kartjim.gitee.io/seadocs/jim"
         const val EXTRA_STRING_URL = "string_url"
     }
 
@@ -26,13 +27,20 @@ class BlogContentActivity : AppCompatActivity() {
     private fun initView() {
         val url = intent.getStringExtra(EXTRA_STRING_URL)
         binding.apply {
-            tvTitle.text = url
+            if (url != null) {
+                tvTitle.text = url.replace(".md", "")
+            }
 
             val mdUrl = "${DEFAULT_WEBSITE}/source/${url}"
 
             MagicHttp.OkHttpManager().newGet(mdUrl, {
                 runOnMainThread {
-                    binding.markdownWebView.setText(it)
+                    var source = it
+                    val index = source.indexOf("#")
+                    if (index != -1) {
+                        source = source.substring(index, source.lastIndex + 1)
+                    }
+                    binding.markdownWebView.setText(source)
                 }
             }, {
 
