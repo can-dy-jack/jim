@@ -39,6 +39,6 @@ class MyBlogActivity : AppCompatActivity() {
 }
 
 // 运行在主线程，更新 UI
-fun runOnMainThread(runnable: Runnable) {
+fun runOnMainThread(runnable: () -> Unit) {
     Handler(Looper.getMainLooper()).post(runnable)
 }
