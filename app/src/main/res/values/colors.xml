@@ -8,4 +8,5 @@
     <color name="transparent">#00FFFFFF</color>
 
     <color name="blogBackground">#F7F7F7</color>
+    <color name="highLight">#0091EA</color>
 </resources>

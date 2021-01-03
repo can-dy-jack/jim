@@ -1,11 +1,20 @@
 package com.ckh.jim.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.SpannableStringBuilder
+import androidx.annotation.ColorInt
+import androidx.annotation.NonNull
+import androidx.appcompat.app.AppCompatActivity
 import com.ckh.jim.MagicHttp
 import com.ckh.jim.databinding.ActivityBlogContentBinding
 import com.ckh.jim.util.runOnMainThread
-import com.ckh.jim.util.toast
+import io.noties.markwon.Markwon
+import io.noties.markwon.core.CorePlugin
+import io.noties.markwon.syntax.SyntaxHighlightPlugin
+import io.noties.prism4j.GrammarLocator
+import io.noties.prism4j.Prism4j
+import io.noties.prism4j.annotations.PrismBundle
+
 
 class BlogContentActivity : AppCompatActivity() {
 
@@ -24,9 +33,13 @@ class BlogContentActivity : AppCompatActivity() {
         initListener()
     }
 
+    private var markdownSource = ""
+
     private fun initView() {
         val url = intent.getStringExtra(EXTRA_STRING_URL)
+
         binding.apply {
+
             if (url != null) {
                 tvTitle.text = url.replace(".md", "")
             }
@@ -40,11 +53,63 @@ class BlogContentActivity : AppCompatActivity() {
                     if (index != -1) {
                         source = source.substring(index, source.lastIndex + 1)
                     }
-                    binding.markdownWebView.setText(source)
+
+                    // val prism4j = Prism4j(GrammarLocatorDef())
+
+
+                    val markwon = Markwon
+                        .builder(this@BlogContentActivity)
+//                        .usePlugin(GlideImagesPlugin.create(this@BlogContentActivity))
+//                        .usePlugin(GlideImagesPlugin.create(Glide.with(this@BlogContentActivity)))
+//                        .usePlugin(GlideImagesPlugin.create(object : GlideImagesPlugin.GlideStore {
+//                            override fun load(drawable: AsyncDrawable): RequestBuilder<Drawable> {
+//                                return Glide.with(this@BlogContentActivity)
+//                                    .load(drawable.destination);
+//                            }
+//
+//                            override fun cancel(target: Target<*>) {
+//                                Glide.with(this@BlogContentActivity).clear(target)
+//                            }
+//                        }))
+                        .usePlugin(CorePlugin.create())
+//                        .usePlugin(
+//                            SyntaxHighlightPlugin.create(
+//                                Prism4j(GrammarLocator()),
+//                                prism4jTheme
+//                            )
+//                        )
+                        .build()
+                    markwon.setMarkdown(tvMarkdown, source)
+
+//                    val builder = SpannableBuilder()
+//                    val visitor = CodeVisitor(
+//                        spannableBuilder,
+//                        builder,
+//                        spannableTheme,
+//                        resources.getColor(R.color.codeTextColor) //Note: code text color
+//                    )
+//
+//                    Markwon.createParser().parse("a simple `code`").accept(visitor)
+//                    tvContent.text = builder.text()
+
+
+                    // binding.markdownWebView.setText(source)
                 }
             }, {
 
             })
+
+//            etMarkdown.addTextChangedListener(object : TextWatcher {
+//                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+//                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+//                override fun afterTextChanged(s: Editable) {
+//                    binding.markdownWebView.setText(etMarkdown.text.toString())
+//                }
+//            })
+
+            btnChange.setOnClickListener {
+
+            }
         }
     }
 
@@ -55,4 +120,19 @@ class BlogContentActivity : AppCompatActivity() {
             }
         }
     }
+}
+
+interface Prism4jTheme {
+    @ColorInt
+    fun background(): Int
+
+    @ColorInt
+    fun textColor(): Int
+    fun apply(
+        @NonNull language: String?,
+        @NonNull syntax: Prism4j.Syntax?,
+        @NonNull builder: SpannableStringBuilder?,
+        start: Int,
+        end: Int
+    )
 }
