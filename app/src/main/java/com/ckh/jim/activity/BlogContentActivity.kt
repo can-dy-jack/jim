@@ -10,10 +10,6 @@ import com.ckh.jim.databinding.ActivityBlogContentBinding
 import com.ckh.jim.util.runOnMainThread
 import io.noties.markwon.Markwon
 import io.noties.markwon.core.CorePlugin
-import io.noties.markwon.syntax.SyntaxHighlightPlugin
-import io.noties.prism4j.GrammarLocator
-import io.noties.prism4j.Prism4j
-import io.noties.prism4j.annotations.PrismBundle
 
 
 class BlogContentActivity : AppCompatActivity() {
@@ -122,17 +118,17 @@ class BlogContentActivity : AppCompatActivity() {
     }
 }
 
-interface Prism4jTheme {
-    @ColorInt
-    fun background(): Int
-
-    @ColorInt
-    fun textColor(): Int
-    fun apply(
-        @NonNull language: String?,
-        @NonNull syntax: Prism4j.Syntax?,
-        @NonNull builder: SpannableStringBuilder?,
-        start: Int,
-        end: Int
-    )
-}
+//interface Prism4jTheme {
+//    @ColorInt
+//    fun background(): Int
+//
+//    @ColorInt
+//    fun textColor(): Int
+//    fun apply(
+//        @NonNull language: String?,
+//        @NonNull syntax: Prism4j.Syntax?,
+//        @NonNull builder: SpannableStringBuilder?,
+//        start: Int,
+//        end: Int
+//    )
+//}
